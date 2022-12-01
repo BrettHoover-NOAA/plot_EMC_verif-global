@@ -1,0 +1,15 @@
+set1:
+     expr:    'v163ctl_sept'
+     figname: 'ctl'
+     statdir: /Users/bhoover/Desktop/IMSG/PROJECTS/GOES18/impact_test/grid2ob_stats/
+set2:
+     expr:    'v163g18_sept'
+     figname: 'g18'
+     statdir: /Users/bhoover/Desktop/IMSG/PROJECTS/GOES18/impact_test/grid2ob_stats/
+figure:
+     pre_levs: ['1000','925','850','700','500','400','300','250','200','150','100']
+     var: 'UGRD_VGRD'
+     ob: 'ADPUPA'
+     region: 'TRO'
+     fhr: '720000'
+     filenm: 'gr2ob_72hrs.png'     
