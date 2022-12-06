@@ -131,18 +131,27 @@ def retrieve_statfile_list(statsDir,statType,expr,pre,var,ob,vxMask,isCI=False):
     # DEPENDENCIES:
     #    glob
     from glob import glob
+    # Generate search string with wild-cards in selected places
+    srchStr = (statsDir + '*/grid2obs/*/data/' + #...................... all potential paths to files
+               statType + '_' + expr + '_' + ob + #..................... <STAT>_<EXPR>_<OB> sequence
+               '_valid*to*_valid*to*Z_init*to*Z_fcst_lead_avgs_' + #.... all potential validation date/cycle, init date/cycle seq
+               'fcst' + var + 'P' + pre + #............................. forecast <VAR>P<PRE> seq
+               '_obs' + var + 'P' + pre + #............................. observation <VAR>P<PRE> seq
+               '_vxmask' + vxMask) #.................................... <VXMASK> seq
+    # Perform search to generate list
     if isCI:
-        fileList = glob(statsDir + '/' + statType + '_' + expr + '_' + ob +
-                        '_*' + var + 'P' + pre + '_*vxmask' + vxMask + '_CI_EMC.txt')
+        srchStr = srchStr + '_CI_EMC.txt'
+        statfileList = glob(srchStr)
     else:
-        fileList = glob(statsDir + '/' + statType + '_' + expr + '_' + ob +
-                        '_*' + var + 'P' + pre + '_*vxmask' + vxMask + '.txt')
-    if len(fileList) == 0:
+        srchStr = srchStr + '.txt'
+        statfileList = glob(srchStr)
+    # Return list contents if a single entry exists, otherwise return None
+    if len(statfileList) == 0:
         return None
-    elif len(fileList) > 1:
+    elif len(statfileList) > 1:
         return None
     else:
-        return fileList[0]
+        return statfileList[0]
 
 def collect_statistics(statsDirs,statType,exprNames,preList,fhr,var,ob,vxMask):
     # For each experiment in exprNames:
