@@ -14,9 +14,9 @@ a single job and greatly speed up job time.
 **Execution**  
   
 The config.vrfy.tmpl template-file is set as per a normal config.vrfy file for running the step1 jobs, but contains three wildcards:  
-* >>OUTDIR<<: subdirectory of OUTPUTROOT defining work-directory space for a chunk  
-* >>START_DATE<<: beginning date (YYYYMMDD) of total time-period for job  
-* >>END_DATE<<: ending date of total time-period for job  
+. >>OUTDIR<<: subdirectory of OUTPUTROOT defining work-directory space for a chunk  
+. >>START_DATE<<: beginning date (YYYYMMDD) of total time-period for job  
+. >>END_DATE<<: ending date of total time-period for job  
   
 The ">> <<" format is used to distinguish these as wildcards.  
   
