@@ -53,3 +53,7 @@ template file via:
 ./run_verif_global.sh config.vrfy.step1.chunk4  
 ./run_verif_global.sh config.vrfy.step1.chunk5  
 ./run_verif_global.sh config.vrfy.step1.chunk6
+  
+** Troubleshooting **  
+Note that split_datelist.py only works properly in Python3. Python2 has stricter i/o that creates problems for passing  
+datetimes and returning the proper beg/end cutoffs to a text file.

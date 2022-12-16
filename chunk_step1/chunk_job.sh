@@ -12,7 +12,8 @@ tmpl_name=config.vrfy_grid2obs.tmpl
 config_name=config.vrfy_grid2obs
 
 # Run split_datelist.py to generate start/end dates for each of n_chunks
-python split_datelist.py << EOF > split_dates.txt
+# NOTE: Python3 is REQUIRED for this script
+python3 split_datelist.py << EOF > split_dates.txt
 ${date_beg}
 ${date_end}
 ${n_chunks}
